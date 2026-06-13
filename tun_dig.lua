@@ -30,7 +30,7 @@ while true do
   if r == 0 then
    selectItemFromName("minecraft:cobblestone")
   end
-  turtle.placeDown()
+  turtle.placeUp()
  end
  --return to original pos
  for i = 1, 2 do
