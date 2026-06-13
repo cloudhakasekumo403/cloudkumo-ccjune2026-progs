@@ -1,3 +1,8 @@
+--Digger for miners (2x7)
+--(C) 2026 cloudkumo403
+--You can redestirbute, modify and remix freely
+--This program has absolutely no warranty
+
 j = 1
 while true do
 	for i = 1, 7 do
