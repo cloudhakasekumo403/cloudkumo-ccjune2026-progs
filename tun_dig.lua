@@ -63,7 +63,7 @@ while true do
   end
   turtle.turnRight()
   turtle.forward()
+  w = 1
  end
- w = 1
 end
 
