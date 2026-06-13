@@ -5,9 +5,11 @@
 
 function selectItemFromName(n)
  for i = 1, 16 do
-  it = turtle.getItemDetail(n)
-  turtle.select(i)
-  return i
+  it = turtle.getItemDetail(i)
+  if it ~= nil and it.name == n then
+   turtle.select(i)
+   return i
+  end
  end
  return 0
 end
@@ -43,7 +45,7 @@ while true do
  --deal with gravel or sand
  while true do
   c, it = turtle.inspect()
-  if c == true and c ~= "minecraft:water" then
+  if c == true and it.name ~= "minecraft:water" then
    turtle.dig()
   else
    break
