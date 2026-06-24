@@ -15,12 +15,16 @@ function selectItemFromName(n)
 end
 
 w = 1
+tl = 4
 while true do
  --make single width tunnel
  for i = 1, 3 do
   turtle.dig()
   if i ~= 3 then
-   turtle.up()
+   if turtle.up() == false then
+    print("error")
+    exit(1)
+   end
   end
  end
  --if there is no ceiling place it
@@ -54,16 +58,19 @@ while true do
    break
   end
  end
- if w ~= 4 then
+ if w ~= tl then
   --prepare for next col
   turtle.turnLeft()
-  turtle.forward()
+  if turtle.forward() == false then
+   print("error")
+   exit(1)
+  end
   turtle.turnRight()
   w = w + 1
  else
   --go back to original pos, go forward
   turtle.turnLeft()
-  for i = 1, 3 do
+  for i = 1, tl - 1 do
    turtle.back()
   end
   turtle.turnRight()
