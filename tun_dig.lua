@@ -28,9 +28,11 @@ while true do
  if c == false or (c == true and  it.name == "minecraft:water") then
   r = selectItemFromName("minecraft:polished_andesite")
   if r == 0 then
-   selectItemFromName("minecraft:cobblestone")
+   r = selectItemFromName("minecraft:cobblestone")
   end
-  turtle.placeUp()
+  if r ~= 0 then
+   turtle.placeUp()
+  end
  end
  --return to original pos
  for i = 1, 2 do
@@ -39,8 +41,9 @@ while true do
  --if there is no floor place a stone
  c, it = turtle.inspectDown()
  if c == false or (c == true and it.name == "minecraft:water") then
-  selectItemFromName("minecraft:cobblestone")
-  turtle.placeUp()
+  if selectItemFromName("minecraft:cobblestone") ~= 0 then
+  	turtle.placeDown()
+  end
  end
  --deal with gravel or sand
  while true do
